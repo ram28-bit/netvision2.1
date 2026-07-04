@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
 import os
+from database import init_db
+init_db()
+def get_db():
+    return sqlite3.connect("users.db")
 app = Flask(__name__)
 app.secret_key = "netvision123"
 
